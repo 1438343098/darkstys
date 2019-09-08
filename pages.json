@@ -1,0 +1,111 @@
+{
+    "pages": [ //pages数组中第一项表示应用启动页,
+
+		// 启动页
+		// {
+		//     "path": "pages/start/index",
+		//     "style": {
+		//         "navigationStyle": "custom",
+		// 		"app-plus": {"titleNView": false} 
+		//     }
+		// },
+		// index
+        {
+            "path": "pages/main/main",
+           "style": {
+                   "navigationStyle": "custom",
+           		"app-plus": {"titleNView": false} 
+               }
+        }, 
+		// 好友
+		{
+            "path": "pages/friend/index",
+            "style": {
+                "navigationBarTitleText": "好友",
+				"navigationBarBackgroundColor":"#b97d9f"
+            }
+        }, 
+		// 视听
+		{
+            "path": "pages/photo/index",
+            "style": {
+                "navigationBarTitleText": "视听",
+				"navigationBarBackgroundColor":"#b97d9f"
+            }
+        }, 
+		// MY
+		{
+            "path": "pages/user/user",
+            "style": {
+                "navigationBarTitleText": "MY",
+				"navigationBarBackgroundColor":"#b97d9f"
+            }
+        }, 
+		// 登录
+		{
+            "path": "pages/login/login",
+            "style": {
+                "navigationBarTitleText": "登录",
+				"navigationBarBackgroundColor":"#b97d9f"
+				
+            }
+        }, 
+		// 注册
+		{
+            "path": "pages/reg/reg",
+            "style": {
+                "navigationBarTitleText": "注册",
+				"navigationBarBackgroundColor":"#b97d9f"
+				
+				
+            }
+        }, 
+		// 找回密码
+		{
+            "path": "pages/pwd/pwd",
+            "style": {
+                "navigationBarTitleText": "找回密码",
+				"navigationBarBackgroundColor":"#b97d9f"
+	
+            }
+        }
+    ],
+	"globalStyle": {
+		"navigationBarBackgroundColor": "#b97d9f",
+		"backgroundColor": "#b97d9f",
+		"app-plus": {  
+			"background": "#477497"  
+		}  
+	},
+    "tabBar": {
+        "color": "#00355f",
+        "selectedColor": "#1296db",
+        "backgroundColor": "#477497",
+        "list": [
+			{
+				"pagePath": "pages/main/main",
+				"text": "出发",
+				"iconPath": "static/image/play.png",
+				"selectedIconPath": "static/image/playend.png"
+			},{
+				"pagePath": "pages/friend/index",
+				"text": "好友",
+				"iconPath":"static/image/friend.png",
+				"selectedIconPath":"static/image/friended.png"
+			},
+			{
+				"pagePath": "pages/photo/index",
+				"text": "视听",
+				"iconPath":"static/image/photo.png",
+				"selectedIconPath":"static/image/photoend.png"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"text": "MY",
+				"iconPath": "static/image/user.png",
+				"selectedIconPath": "static/image/userend.png"
+			}
+		]
+    }
+
+}
