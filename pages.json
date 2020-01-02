@@ -2,21 +2,21 @@
     "pages": [ //pages数组中第一项表示应用启动页,
 
 		// 启动页
-		// {
-		//     "path": "pages/start/index",
-		//     "style": {
-		//         "navigationStyle": "custom",
-		// 		"app-plus": {"titleNView": false} 
-		//     }
-		// },
-		// index
-        {
-            "path": "pages/main/main",
-           "style": {
-                   "navigationStyle": "custom",
-           		"app-plus": {"titleNView": false} 
-               }
-        }, 
+		{
+		    "path": "pages/start/index",
+		    "style": {
+		        "navigationStyle": "custom",
+				"app-plus": {"titleNView": false} 
+		    }
+		},
+		// 首页
+		{
+		    "path": "pages/index/index",
+		    "style": {
+		        "navigationBarTitleText": "出发",
+		        "navigationBarBackgroundColor":"#b97d9f" 
+		    }
+		},
 		// 好友
 		{
             "path": "pages/friend/index",
@@ -43,7 +43,7 @@
         }, 
 		// 登录
 		{
-            "path": "pages/login/login",
+            "path": "pages/user/login",
             "style": {
                 "navigationBarTitleText": "登录",
 				"navigationBarBackgroundColor":"#b97d9f"
@@ -52,7 +52,7 @@
         }, 
 		// 注册
 		{
-            "path": "pages/reg/reg",
+            "path": "pages/user/reg",
             "style": {
                 "navigationBarTitleText": "注册",
 				"navigationBarBackgroundColor":"#b97d9f"
@@ -62,9 +62,18 @@
         }, 
 		// 找回密码
 		{
-            "path": "pages/pwd/pwd",
+            "path": "pages/user/pwd",
             "style": {
                 "navigationBarTitleText": "找回密码",
+				"navigationBarBackgroundColor":"#b97d9f"
+	
+            }
+        }, 
+		// 找回密码
+		{
+            "path": "pages/user/info",
+            "style": {
+                "navigationBarTitleText": "个人资料",
 				"navigationBarBackgroundColor":"#b97d9f"
 	
             }
@@ -83,7 +92,7 @@
         "backgroundColor": "#477497",
         "list": [
 			{
-				"pagePath": "pages/main/main",
+				"pagePath": "pages/index/index",
 				"text": "出发",
 				"iconPath": "static/image/play.png",
 				"selectedIconPath": "static/image/playend.png"

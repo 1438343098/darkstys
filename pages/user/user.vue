@@ -21,7 +21,7 @@
             ...mapMutations(['logout']),
             bindLogin() {
                 uni.navigateTo({
-                    url: '../login/login',
+                    url: '../user/login',
                 });
             },
             bindLogout() {
@@ -31,7 +31,7 @@
                  */
                 if (this.forcedLogin) {
                     uni.reLaunch({
-                        url: '../login/login',
+                        url: '../user/login',
                     });
                 }
             }

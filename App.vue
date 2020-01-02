@@ -20,14 +20,15 @@ export default {
 	width: 100%;
 	height: 100%;
 }
-/*每个页面公共css */
-page {
-	min-height: 100%;
-	display: flex;
-	background: linear-gradient(#b97d9f, #477497);
-	color: #00355f;
+.ac{
+	text-align: center;
 }
-/* #ifdef MP-BAIDU */
+.al{
+	text-align: left;
+}
+.ar{
+	text-align: right;
+}
 page {
 	width: 100%;
 	height: 100%;
@@ -46,7 +47,6 @@ custom-component {
 	display: flex;
 }
 
-/* #endif */
 
 /* #ifdef MP-ALIPAY */
 page {

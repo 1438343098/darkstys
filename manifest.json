@@ -1,5 +1,5 @@
 {
-    "name" : "darsky",
+    "name" : "你我见证",
     "appid" : "__UNI__0777B4E",
     "description" : "登录模板",
     "versionName" : "1.0.0",
@@ -46,7 +46,6 @@
             "splashscreen" : {
                 "android" : {
                     "hdpi" : "C:/Users/Administrator/Desktop/loding (1).png"
- 
                 }
             }
         },
