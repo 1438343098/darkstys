@@ -45,7 +45,7 @@
 			this.getPhotoLists('图片')
 		},
 		methods:{
-		  async getPhotoLists(type,text){
+		  async getPhotoLists(type,text=""){
 			  let data = (await getPhotoList({page:this.page,"text":text})).data
 			  if(type){	  
 				  this.newList = data.data.result
