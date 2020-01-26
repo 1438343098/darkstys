@@ -1,6 +1,14 @@
 <script>
 export default {
 	onLaunch: function() {
+		uni.getSystemInfo({
+		       success(e){
+		           /* 窗口宽度 大于420px且不在PC页面时，跳转至PC页面 */
+		           if(e.windowWidth>420 && !window.top.isPC){
+		               window.location.pathname = '/static/html/pc.html';
+		           }
+		       }
+		   })
 		console.log('App Launch');
 	},
 	onShow: function() {
@@ -54,4 +62,5 @@ page {
 }
 
 /* #endif */
+.uni-body::-webkit-scrollbar {display:none}
 </style>
