@@ -1,129 +1,61 @@
 <template>
 	<view class="index">
-		bilibil 相簿 
-		<view class="search">
-			<input class="inputs" type="text" @input="onKeyInput" placeholder="图片搜索" />
-			<button class="btns" @click="search">搜索</button>
-		</view>
-		<view class="imgList">
-			<view class="imgItem" v-for="(item,index) in list" :key='index'>
-				<view class="img">
-					<image mode='aspectFit' :src="item.cover" ></image>
-					<view class="count">
-						{{item.count}}
-					</view>
-				</view>
-				<view class="info ac">
-					<view class="title">
-						<rich-text :nodes="item.title"></rich-text>
-					</view>
-					<view class="name">
-						{{item.uname}}
-					</view>
-				</view>
-			</view>
-			<view class="imgItem">
-				
-			</view>
-		</view>
+		<navigator url='image/index' hover-class='none' class="bilibili" >
+			<image class="photoimg" src="http://superliu.cn/photo/bilibili.jpg" ></image>
+		</navigator>
+		<navigator  url='music/index' hover-class='none' class="music">
+			<image class="photoimg" src="http://superliu.cn/photo/music.jpg" ></image>
+		</navigator>
 	</view>
 </template>
 
 <script>
-	import {getPhotoInfo,getPhotoList} from "@/api/photo.js"
 	export default{
-		data(){
-			return{
-				page:1,
-				list:[],
-				newList:[],
-				imgName:''
-			}
+		methods:{
 			
 		},
-		onLoad(){
-			this.getPhotoLists('图片')
-		},
-		methods:{
-		  async getPhotoLists(type,text=""){
-			  let data = (await getPhotoList({page:this.page,"text":text})).data
-			  if(type){	  
-				  this.newList = data.data.result
-				  this.list = this.list.concat(this.newList)
-				  return
-			  }
-			  this.list = data.data.result
-		  },
-		  // 搜索
-		  search(){
-			  console.log("this.imgName: " + this.imgName);
-			this.getPhotoLists(false,this.imgName)
-		  },
-		  onKeyInput(event) {
-		        this.imgName = event.target.value
-		    }
-		},
-		// 上拉加载
-		onReachBottom() {
-			if (this.newList.length < 20) {
-				return
-			}
-			this.page++
-			this.getPhotoLists(true)
-		}
+		
 	}
 </script>
 
 <style lang="scss" scoped>
-.btns{
-	width: 20%;
-	line-height: 60upx;
-	border-radius: 0 4upx 4upx 0;
-	background-color: #eccfec;
+	.index{
+		height: 100%;
+	}
+.bilibili,.music{
+	height: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.inputs{
+.photoimg{
 	width: 80%;
-	height: 100%;
-	line-height: 60upx;
-	border:#007AFF 1px solid;
-	box-sizing: border-box;
+	height: 80%;
+	border-radius: 10px;
+	
 	
 }
-.search{
-	position: fixed;
-	top: 150upx;
-	left: 40upx;
-	right: 40upx;
-	height: 60upx;
-	display: flex;
-	z-index: 20;
+
+.bilibili{
+	background: #606cff;
+	.photoimg{
+		transform: translateX(-10upx);
+		animation: 10s lrauto infinite alternate linear;
+		box-shadow: 0upx 0upx 40upx 25upx #b6c3ff;
+	}
 }
-	.imgItem{
-		width: 100%;
-		padding: 20upx;
-		box-sizing: border-box;
-		.img{
-			text-align: center;
-			position: relative;
-			margin-bottom:40upx ;
-		}
-		
-		.count{
-			width: 40upx;
-			background: rgba(0,0,0,.3);
-			color: #fff;
-			position: absolute;
-			right: 50%;
-			transform: translateX(50%);
-			bottom: 20upx;
-			height: 40upx;
-			line-height: 40upx;
-			border-radius: 50%;
-			font-size: 10upx;
-		}
+.music{
+	background: #dc1e1e;
+	.photoimg{
+		transform: translateX(-10upx);
+		animation: 5s lrauto infinite 1s alternate linear;
+		box-shadow: 0upx 0upx 40upx 25upx #e66767;
 	}
-	// .keyword{}
-	.index{
-		margin-bottom: 150upx;
-	}
+}
+@keyframes lrauto{
+  0% {transform: translateX(-10upx);}
+  25% {transform: translateY(-10upx);}
+  75% {transform: translateY(10upx);}
+  100% {transform: translateX(10upx);}
+}
 </style>

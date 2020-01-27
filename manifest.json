@@ -74,6 +74,7 @@
         "usingComponents" : true
     },
     "h5" : {
-        "template" : "index.html"
+        "template" : "index.html",
+        "domain" : "superliu.cn"
     }
 }

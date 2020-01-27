@@ -37,9 +37,8 @@ export default {
 			positionTop: 0
 		};
 	},
-	computed: mapState(['forcedLogin']),
 	methods: {
-		...mapMutations(['login', 'addCity']),
+		...mapMutations('user',['login', 'addCity']),
 		initProvider() {
 			const filters = ['weixin', 'qq', 'sinaweibo'];
 			uni.getProvider({
@@ -136,17 +135,9 @@ export default {
 		},
 		toMain(userName) {
 			this.login(userName);
-			/**
-			 * 强制登录时使用reLaunch方式跳转过来
-			 * 返回首页也使用reLaunch方式
-			 */
-			if (this.forcedLogin) {
-				uni.reLaunch({
-					url: '../main/main'
-				});
-			} else {
-				uni.navigateBack();
-			}
+			
+			uni.navigateBack();
+			
 		}
 	},
 	onReady() {

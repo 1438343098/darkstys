@@ -52,27 +52,27 @@ class HttpUtil {
 				'Accept': 'application/json,text/plain',
 				// "Authorization":uni.getStorageSync('token') || ''
 			})
-			// .interceptor(res => {
-			// 	let result = {};
-			// 	if (res && res.header && (res.header.Authorization || res.header.authorization)) {
+			.interceptor(res => {
+				let result = {};
+				// if (res && res.header && (res.header.Authorization || res.header.authorization)) {
 			// 		uni.setStorageSync('token', res.header.Authorization || res.header.authorization);
 			// 		req.token(res.header.Authorization || res.header.authorization)
 			// 	}
-			// 	if (res && res.statusCode >= 200 && res.statusCode < 300) {
-			// 		result.data = res.data;
-			// 	} else {
-			// 		uni.showToast({
-			// 			title: statusMap[res.statusCode + ''] || '',
-			// 			icon: 'none',
-			// 			duration: 1000
-			// 		})
-			// 		result.error = {
-			// 			errorCode: res.statusCode,
-			// 			errorMessage: statusMap[res.statusCode + ''] || ''
-			// 		}
-			// 	}
-			// 	return result;
-			// })
+				if (res && res.statusCode >= 200 && res.statusCode < 300) {
+					result.data = res.data;
+				} else {
+					uni.showToast({
+						title: statusMap[res.statusCode + ''] || '',
+						icon: 'none',
+						duration: 1000
+					})
+					result.error = {
+						errorCode: res.statusCode,
+						errorMessage: statusMap[res.statusCode + ''] || ''
+					}
+				}
+				return result;
+			})
 			// .interceptor(data => {
 			// 	let result = {}
 			// 	if (data && data.result) {
@@ -94,6 +94,7 @@ class HttpUtil {
 			// 			errorMessage: data.message
 			// 		}
 			// 	}
+			// 	
 			// 	return result;
 			// })
 	}

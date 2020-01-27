@@ -33,6 +33,22 @@
 				"navigationBarBackgroundColor":"#b97d9f"
             }
         }, 
+		// 图片
+		{
+		    "path": "pages/photo/image/index",
+			"style": {
+			    "navigationBarTitleText": "相簿",
+				"navigationBarBackgroundColor":"#b97d9f"
+			}
+		}, 
+		// 音乐
+		{
+		    "path": "pages/photo/music/index",
+			"style": {
+			    "navigationBarTitleText": "音乐",
+				"navigationBarBackgroundColor":"#b97d9f"
+			}
+		}, 
 		// MY
 		{
             "path": "pages/user/user",

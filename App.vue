@@ -1,5 +1,12 @@
 <script>
+import { mapMutations,mapGetters ,mapActions} from 'vuex'
 export default {
+	methods:{
+		...mapMutations("audio",['SETGLOBALDATA','UPDATE','RESET'])
+	},
+	computed:{
+		...mapGetters(['songList','index'])
+	},
 	onLaunch: function() {
 		uni.getSystemInfo({
 		       success(e){
@@ -10,6 +17,16 @@ export default {
 		       }
 		   })
 		console.log('App Launch');
+		//初始化全局的音频播放器
+		let audio = uni.createInnerAudioContext();
+		audio.onEnded(()=>{
+			if(this.songList.length-1 != this.index){
+				this.UPDATE()
+			}else{ 
+				this.RESET()
+			}
+		})
+		this.SETGLOBALDATA({ key: "audio", value: audio });
 	},
 	onShow: function() {
 		console.log('App Show');

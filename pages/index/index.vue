@@ -1,7 +1,9 @@
 <template>
 	<view class="content">
 		<view  class="hello">
-			去除一些花里胡哨的东西
+			<view v-if="userName">
+				欢迎来着{{city}}的{{userName}}
+			</view>
 		</view>
 	</view>
 </template>
@@ -10,9 +12,10 @@
 import { mapState } from 'vuex';
 
 export default {
-	computed: mapState(['forcedLogin', 'userName', 'city']),
+	computed: mapState('user',[ 'userName', 'city']),
 	onLoad() {
 		this.showHead = false;
+		console.log(this.userName,this.city)
 	},
 	data() {
 		return {

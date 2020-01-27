@@ -3,7 +3,11 @@ import App from './App'
 
 import store from './store'
 
+import MusicGlobal from 'components/imt-audio/imt-audio.vue'
+
 Vue.config.productionTip = false
+
+Vue.component("MusicGlobal",MusicGlobal)
 
 Vue.prototype.$store = store
 

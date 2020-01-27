@@ -1,31 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import getters from './getters'
 
 Vue.use(Vuex)
 
+const modulesFiles = require.context('./modules', true, /\.js$/)
+const modules = modulesFiles.keys().reduce((modules, modulePath) => {
+  const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
+  const value = modulesFiles(modulePath)
+  modules[moduleName] = value.default
+  return modules
+}, {})
 const store = new Vuex.Store({
-    state: {
-        /**
-         * 是否需要强制登录
-         */
-        forcedLogin: false,
-        hasLogin: false,
-        userName: "",
-		city:""
-    },
-    mutations: {
-        login(state, userName) {
-            state.userName = userName || '新用户';
-            state.hasLogin = true;
-        },
-        logout(state) {
-            state.userName = "";
-            state.hasLogin = false;
-        },
-		addCity(state,city){
-			state.city = city
-		}
-    }
+  modules,
+  getters
 })
 
 export default store

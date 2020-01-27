@@ -8,8 +8,8 @@
 					<text class="upt">融</text>
 					<text class="upt">入</text>
 					<text class="upt">夜</text>
-					<text class="upt">空</text>
-				</button>
+					<text class="upt">空</text> 
+				</button> 
 			</view>
 		</view>
 	</view>
@@ -18,10 +18,13 @@
 <script>
 import data from 'service';
 export default {
+	data(){
+		return{
+			time:null
+		}
+	},
 	onLoad() {
-		console.log(data.getUsers());
-		setTimeout(() => {
-			console.log(5555)
+		this.time = setTimeout(function() {
 			uni.switchTab({
 				url:'/pages/index/index'
 			})
@@ -30,6 +33,8 @@ export default {
 	methods: {
 		// 进入首页
 		goIndex() {
+		clearTimeout(this.time)
+		this.time = null
 			uni.switchTab({
 				url:'/pages/index/index'
 			})
