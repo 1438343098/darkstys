@@ -23,11 +23,8 @@
 
 <script>
 import service from '../../service.js';
-import Icon from 'components/common/Icon.vue';
 export default {
-	components: {
-		Icon
-	},
+
 	data() {
 		return {
 			account: '',

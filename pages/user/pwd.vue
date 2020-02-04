@@ -14,14 +14,12 @@
 </template>
 
 <script>
-	import Icon from 'components/common/Icon.vue';
 import service from '../../service.js';
 import mInput from '../../components/m-input.vue';
 
 export default {
 	components: {
 		mInput,
-		Icon
 	},
 	data() {
 		return {

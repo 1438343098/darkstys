@@ -5,7 +5,7 @@ export default {
 		...mapMutations("audio",['SETGLOBALDATA','UPDATE','RESET'])
 	},
 	computed:{
-		...mapGetters(['songList','index'])
+		...mapGetters(['songList','musicIndex'])
 	},
 	onLaunch: function() {
 		uni.getSystemInfo({
@@ -20,7 +20,7 @@ export default {
 		//初始化全局的音频播放器
 		let audio = uni.createInnerAudioContext();
 		audio.onEnded(()=>{
-			if(this.songList.length-1 != this.index){
+			if(this.songList.length-1 != this.musicIndex){
 				this.UPDATE()
 			}else{ 
 				this.RESET()
@@ -41,9 +41,8 @@ export default {
 .uni-input-placeholder {
 	color: #00355f;
 }
-.imgs {
+uni-image {
 	width: 100%;
-	height: 100%;
 }
 .ac{
 	text-align: center;

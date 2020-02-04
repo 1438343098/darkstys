@@ -21,13 +21,9 @@
 </template>
 
 <script>
-import Icon from 'components/common/Icon.vue';
 import service from 'service.js';
 import { mapState, mapMutations } from 'vuex';
 export default {
-	components: {
-		Icon
-	},
 	data() {
 		return {
 			providerList: [],

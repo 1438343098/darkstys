@@ -1,10 +1,10 @@
 <template>
 	<view class="index">
 		<navigator url='image/index' hover-class='none' class="bilibili" >
-			<image class="photoimg" src="http://superliu.cn/photo/bilibili.jpg" ></image>
+			<image  mode='widthFix' class="photoimg" src="http://superliu.cn/photo/bilibili.jpg" ></image>
 		</navigator>
 		<navigator  url='music/index' hover-class='none' class="music">
-			<image class="photoimg" src="http://superliu.cn/photo/music.jpg" ></image>
+			<image  mode='widthFix' class="photoimg" src="http://superliu.cn/photo/music.jpg" ></image>
 		</navigator>
 	</view>
 </template>

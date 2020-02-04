@@ -41,6 +41,14 @@
 				"navigationBarBackgroundColor":"#b97d9f"
 			}
 		}, 
+		// 图片详情
+		{
+		    "path": "pages/photo/image/info",
+			"style": {
+			    "navigationBarTitleText": "图片详情",
+				"navigationBarBackgroundColor":"#b97d9f"
+			}
+		},
 		// 音乐
 		{
 		    "path": "pages/photo/music/index",

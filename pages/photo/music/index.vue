@@ -1,11 +1,16 @@
 <template>
 	<view class="index">
+		<view class="musicList">
+			<view class="musicItem" v-for="(item,index) in songList" :key='index'>
+				<span>{{item.name}} &emsp;{{item.alias.join("")}}</span> 
+				<span>
+					{{item.auth.join("/")}}
+				</span>
+			</view>
+		</view>
 		<view @click="palys">
 			播放
 		</view>
-		<br/>
-		<br/>
-		<br/>
 		<view @click="pauses">
 			暂停
 		</view>
@@ -15,7 +20,7 @@
 
 <script>
 	import { mapGetters,mapActions ,mapMutations} from 'vuex'
-	import {getMusicListInfo,getPlayUrl} from "@/api/photo.js"
+	import {getMusicListInfo,getMusicComments,getMusicLyric} from "@/api/photo.js"
 	export default{
 		data(){
 			return{
@@ -27,18 +32,21 @@
 			
 		},
 		computed:{
-			...mapGetters(['openAudio','songList'])
+			...mapGetters(['openAudio','songList',"musicIndex"])
 		},
 		onLoad(){
 			console.log(this.songList)
 			if(this.songList.length == 0){
 				let list = []
 				getMusicListInfo().then(res=>{
-					
+					console.log(res)
 					list = res.result.map(item=>{
 							return {
 								id:item.id,
-								br:item.song.bMusic.bitrate
+								br:item.song.bMusic.bitrate,
+								name:item.name,
+								auth:item.song.artists.map(item=>item.name),
+								alias:item.song.alias
 							}
 					})
 					this.SETGLOBALDATA({key:'songList',value:list})
