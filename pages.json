@@ -49,11 +49,18 @@
 				"navigationBarBackgroundColor":"#b97d9f"
 			}
 		},
-		// 音乐
+		// 歌单列表
 		{
 		    "path": "pages/photo/music/index",
 			"style": {
-			    "navigationBarTitleText": "音乐",
+			    "navigationBarTitleText": "精品歌单",
+				"navigationBarBackgroundColor":"#b97d9f"
+			}
+		}, 
+		{
+		    "path": "pages/photo/music/musiclist",
+			"style": {
+			    "navigationBarTitleText": "歌单详情",
 				"navigationBarBackgroundColor":"#b97d9f"
 			}
 		}, 

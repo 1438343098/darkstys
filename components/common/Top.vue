@@ -26,7 +26,7 @@
 		border-radius: 50%;
 		position: fixed;
 		right: 70upx;
-		bottom: 100upx;
+		bottom: 150upx;
 		background: rgba(0,0,0,.3);
 		
 	}

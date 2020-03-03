@@ -44,6 +44,9 @@ export default {
 uni-image {
 	width: 100%;
 }
+.ofh{
+	overflow: hidden;
+}
 .ac{
 	text-align: center;
 }
@@ -53,10 +56,17 @@ uni-image {
 .ar{
 	text-align: right;
 }
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
 page {
 	width: 100%;
 	height: 100%;
 	display: block;
+	font-size: 30upx;
 }
 swan-template {
 	width: 100%;

@@ -1,9 +1,18 @@
 <template>
 	<view class="content">
 		<view  class="hello">
-			<view v-if="userName">
-				欢迎来着{{city}}的{{userName}}
-			</view>
+	
+			<swiper class="swiper" :indicator-dots="true" :autoplay="true" :circular='true' >
+				<swiper-item>
+					<view class="swiper-item uni-bg-red">暂时先放个轮播图？1</view>
+				</swiper-item>
+				<swiper-item>
+					<view class="swiper-item uni-bg-green">暂时先放个轮播图？2</view>
+				</swiper-item>
+				<swiper-item>
+					<view class="swiper-item uni-bg-blue">暂时先放个轮播图？3</view>
+				</swiper-item>
+			</swiper>
 		</view>
 	</view>
 </template>

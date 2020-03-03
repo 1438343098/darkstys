@@ -1,7 +1,5 @@
 import { getPlayUrl, getMusicLyric } from '@/api/photo.js'
 const state = {
-	// 是否有音乐组件
-	openAudio:false,
 	audio: null,
 	index:0,
 	songList: [] //播放列表
@@ -18,12 +16,29 @@ const mutations = {
 			})
 		}
     },
-	UPDATE(state) {
-		state.index += 1
+	PREV(state){
+		state.index -= 1
+		if(state.index < 0){
+			state.index = state.songList.length-1
+		}
 		getPlayUrl(state.songList[state.index]).then(res=>{
 			state.audio.src = res.data[0].url
 			state.audio.play()
 		})
+	},
+	UPDATE(state,indexs) {
+		if(indexs){
+			state.index += indexs
+			
+		}else{
+			state.index += 1
+		}
+		console.log(state.songList[state.index])
+		getPlayUrl(state.songList[state.index]).then(res=>{
+			state.audio.src = res.data[0].url
+			state.audio.play()
+		})
+		
 	},
 	RESET(state) {
 		state.index = 0

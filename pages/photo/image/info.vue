@@ -3,7 +3,7 @@
 		<view class="title ac">{{ data.item.title }}</view>
 		<view class="ups">
 			up主:
-			<span class="up" :style="{ color: '#' + id.substr(0, 6) }">{{ data.user.name }}</span>
+			<text class="up" :style="{ color: '#' + id.substr(0, 6) }">{{ data.user.name }}</text>
 		</view>
 		<view class="info">{{ data.item.description }}</view>
 		<view class="imglist ac" v-for="(item, index) in data.item.pictures" :key="index">

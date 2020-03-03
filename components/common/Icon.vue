@@ -38,23 +38,15 @@
 
 <style lang="scss" scoped>
 // https:
-	// @font-face {
-	//   font-family: 'iconfont';  /* project id 1278045 */
-	//   src: url('https:https://at.alicdn.com/t/font_1278045_6ni49wgrevn.eot');
-	//   src: url('https:https://at.alicdn.com/t/font_1278045_6ni49wgrevn.eot?#iefix') format('embedded-opentype'),
-	//   url('https:https://at.alicdn.com/t/font_1278045_6ni49wgrevn.woff2') format('woff2'),
-	//   url('https:https://at.alicdn.com/t/font_1278045_6ni49wgrevn.woff') format('woff'),
-	//   url('https:https://at.alicdn.com/t/font_1278045_6ni49wgrevn.ttf') format('truetype'),
-	//   url('https:https://at.alicdn.com/t/font_1278045_6ni49wgrevn.svg#iconfont') format('svg');
-	// }
+	
 	@font-face {
 	  font-family: 'iconfont';  /* project id 1278045 */
-	  src: url('//at.alicdn.com/t/font_1278045_xntk8w7z6e.eot');
-	  src: url('//at.alicdn.com/t/font_1278045_xntk8w7z6e.eot?#iefix') format('embedded-opentype'),
-	  url('//at.alicdn.com/t/font_1278045_xntk8w7z6e.woff2') format('woff2'),
-	  url('//at.alicdn.com/t/font_1278045_xntk8w7z6e.woff') format('woff'),
-	  url('//at.alicdn.com/t/font_1278045_xntk8w7z6e.ttf') format('truetype'),
-	  url('//at.alicdn.com/t/font_1278045_xntk8w7z6e.svg#iconfont') format('svg');
+	  src: url('//at.alicdn.com/t/font_1278045_v0i4s2hyjo.eot');
+	  src: url('//at.alicdn.com/t/font_1278045_v0i4s2hyjo.eot?#iefix') format('embedded-opentype'),
+	  url('//at.alicdn.com/t/font_1278045_v0i4s2hyjo.woff2') format('woff2'),
+	  url('//at.alicdn.com/t/font_1278045_v0i4s2hyjo.woff') format('woff'),
+	  url('//at.alicdn.com/t/font_1278045_v0i4s2hyjo.ttf') format('truetype'),
+	  url('//at.alicdn.com/t/font_1278045_v0i4s2hyjo.svg#iconfont') format('svg');
 	}
 	.iconfont{
 	font-family:"iconfont" !important;

@@ -2,7 +2,10 @@
 	<view class="index">
 		<view class="search">
 			<input class="inputs" type="text" @input="onKeyInput" placeholder="图片搜索" />
-			<button class="btns" @click="search">搜索</button>
+			<button class="btns" @click="search">
+				<Icon class="jiantou" type="&#xe64b;" size="20" color="#fff" />
+				
+			</button>
 		</view>
 		<view class="imgList">
 			<view class="imgItem" @click="toInfo(item)" v-for="(item, index) in list" :key="index">
@@ -15,7 +18,7 @@
 					<view class="name">{{ item.uname }}</view>
 				</view>
 			</view>
-			<Top />
+			<Top ref='top' />
 		</view>
 	</view>
 </template>
@@ -47,8 +50,8 @@ export default {
 		},
 		// 搜索
 		search() {
-			console.log('this.imgName: ' + this.imgName);
 			this.getPhotoLists(false, this.imgName);
+			this.$refs.top.tops()
 		},
 		onKeyInput(event) {
 			this.imgName = event.target.value;
