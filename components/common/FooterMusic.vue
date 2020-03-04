@@ -4,13 +4,13 @@
 		<view class="pl"  @click="pop('lyric')">
 			<Icon type="&#xe602;" size="20" color="#0000ff" />
 		</view>
-		<view class="left" @click="PREV">
+		<view class="left" @click="prev()">
 			<Icon  type="&#xe64d;" size="30" color="#5d60ff" />
 		</view>
 		<view class="play" @click="plays">
-			<Icon  :type="audio.paused?'&#xe647;':'&#xe64a;'" size="34" color="#00aaff" />
+			<Icon  :type="musicPaused?'&#xe647;':'&#xe64a;'" size="34" color="#00aaff" />
 		</view>
-		<view class="right" @click="UPDATE">
+		<view class="right" @click="update()">
 			<Icon   type="&#xe648;" size="30" color="#5d60ff" />
 		</view>
 		<view class="list"  @click="pop('comments')">
@@ -41,10 +41,10 @@
 	export default{
 		 components: {uniPopup},
 		methods:{
-			...mapActions("audio",['play','pause']),
-			...mapMutations("audio",['PREV',"UPDATE"]),
+			...mapActions("audio",['play','pause','prev','update']),
 			plays(){
-				if(this.audio.paused){
+				console.log(this.musicPaused,8888)
+				if(this.musicPaused){
 					this.play()
 				}else{
 					this.pause()
@@ -62,8 +62,9 @@
 				}
 			}
 		},
+
 		computed:{
-			...mapGetters(["audio"]),
+			...mapGetters(["musicPaused"]),
 		}
 		
 	}

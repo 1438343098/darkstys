@@ -158,7 +158,7 @@
 	.uni-popup {
 		position: fixed;
 		/* #ifdef H5 */
-		top: var(--window-top);
+		top: calc(var(--status-bar-height) + 100upx);
 		/* #endif */
 		/* #ifndef H5 */
 		top: 0;
@@ -209,14 +209,14 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		transform: translateY(-500px);
+		transform: translateY(-1000upx);
 	}
 
 	.bottom {
 		bottom: 0;
 		left: 0;
 		right: 0;
-		transform: translateY(500px);
+		transform: translateY(-1000upx);
 	}
 
 	.center {

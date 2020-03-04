@@ -1,6 +1,16 @@
 <template>
 	<view class="index">
-		
+		<uni-popup ref="popup" class="typeStatus" type="top">
+			<view class="typelist">
+				<text >全部</text> <text class='type' @click="search('全部')">全部</text>
+			</view>
+			<view class="typelist" v-for="(value,key) in catlist.categories" :key='key'>
+				<view class="title">
+					{{value}}
+				</view>
+				<view class='type' @click="search(item.name)" v-if='item.category == key' :key="index" v-for="(item,index) in catlist.sub" >{{item.name}}</view> 
+			</view>
+		</uni-popup>
 		<view class="musicList">
 			<view class="types">
 				<text>歌单类型 :</text> 
@@ -26,17 +36,7 @@
 			</view>
 			
 		</view>
-		<uni-popup ref="popup" class="typeStatus" type="top">
-			<view class="typelist">
-				<text >全部</text> <text class='type' @click="search('全部')">全部</text>
-			</view>
-			<view class="typelist" v-for="(value,key) in catlist.categories" :key='key'>
-				<view class="title">
-					{{value}}
-				</view>
-				<view class='type' @click="search(item.name)" v-if='item.category == key' :key="index" v-for="(item,index) in catlist.sub" >{{item.name}}</view> 
-			</view>
-		</uni-popup>
+		
 		<FooterMusic />
 		<Top ref='top' />
 	</view>
@@ -54,6 +54,7 @@
 				limit:10,
 				cat:'全部',
 				listInfo:[],
+				tempList:[],
 				imgName:'',
 				catlist:{}
 			}
@@ -63,15 +64,13 @@
 			...mapGetters(['songList',"musicIndex"])
 		},
 		onLoad(){
-			uni.showLoading({
-			    title: '加载中'
-			});
+			
 				this.getMusicListInfos()
 				this.getMusicListCatlists()
 		},
 		methods:{
 			...mapMutations("audio",["SETGLOBALDATA"]),
-			...mapActions('audio',['play','pause']),
+			...mapActions('audio',['update']),
 			// 获取类型
 			getMusicListCatlists(){
 				getMusicListCatlist().then(res=>{
@@ -86,32 +85,45 @@
 			},
 			// 直接播放列表
 			playListMusic(id){
-				console.log('播放列表',id)
+				getMusicList({id,offset:this.page*this.limit,limit:this.limit}).then(res=>{
+					let list = []
+					console.log(res,55858)
+					list = res.playlist.tracks.map(item=>{
+							return {
+								id:item.id,
+								br:item.m?item.m.br:item.l.br,
+								name:item.name,
+								auth:item.ar.map(item=>item.name)
+							}
+					})
+					this.SETGLOBALDATA({key:'songList',value:list})
+					this.update(0)
+				})
+
 			},
 			// 格式图片
 			httpsurl(url){
 				return url.replace(/http:\/\//, 'https://');
 			},
 			// 获取歌单
-			getMusicListInfos(){
+			getMusicListInfos(bool){
 				let list = []
+				uni.showLoading({
+				    title: '加载歌单'
+				});
 				getMusicListInfo({
 					offset:this.page*this.limit,
 					limit:this.limit,
 					type:this.cat
 				}).then(res=>{
-					this.listInfo = res.playlists
+					this.tempList = res.playlists
+					if(bool){
+						this.listInfo = [...this.listInfo,...this.tempList]
+					}else{
+						this.listInfo = res.playlists
+					}
 					uni.hideLoading()
-					// list = res.result.map(item=>{
-					// 		return {
-					// 			id:item.id,
-					// 			br:item.song.bMusic.bitrate,
-					// 			name:item.name,
-					// 			auth:item.song.artists.map(item=>item.name),
-					// 			alias:item.song.alias
-					// 		}
-					// })
-					// this.SETGLOBALDATA({key:'songList',value:list})
+
 				}).catch(()=>{
 					uni.hideLoading()
 				})
@@ -123,6 +135,14 @@
 				this.$refs.popup.close()
 				this.$refs.top.tops()
 			}
+		},
+		// 上拉加载
+		onReachBottom() {
+			if (this.tempList.length < this.limit) {
+				return
+			}
+			this.page++
+			this.getMusicListInfos(true)
 		}
 	}
 </script>

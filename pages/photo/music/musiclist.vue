@@ -74,11 +74,10 @@
 			this.getData(id.id)	
 		},
 		methods:{
-			...mapMutations("audio",["SETGLOBALDATA",'UPDATE']),
-			...mapActions('audio',['play','pause']),
+			...mapMutations("audio",["SETGLOBALDATA"]),
+			...mapActions('audio',['play','pause','update']),
 			getData(id){
 				getMusicList({id,offset:this.page*this.limit,limit:this.limit}).then(res=>{
-					
 					this.listInfo = res.playlist
 					this.coverImgUrl = this.listInfo.coverImgUrl.replace(/http:\/\//, 'https://')
 					uni.hideLoading()
@@ -89,7 +88,6 @@
 			},
 			// 控制描述
 			sldes(){
-				console.log(665)
 				this.showInfo = !this.showInfo
 			},
 			// 播放音乐
@@ -104,7 +102,7 @@
 						}
 				})
 				this.SETGLOBALDATA({key:'songList',value:list})
-				this.UPDATE(index)
+				this.update(index)
 			},
 			
 		}
@@ -212,11 +210,17 @@
 			padding-top: 20upx;
 		}
 		.by{
-			position: absolute;
-			right: 40upx;
-			color:#505050;
-			font-size: 20upx;
-			bottom: 15upx;
+	
+			    position: absolute;
+			    right: 20px;
+			    color: #505050;
+			    font-size: 10px;
+			    width: 95px;
+			    bottom: 4px;
+			    white-space: nowrap;
+			    overflow: hidden;
+			    text-align: right;
+			    text-overflow: ellipsis;
 		}
 		.play{
 			position: absolute;

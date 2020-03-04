@@ -2,7 +2,8 @@
 import { mapMutations,mapGetters ,mapActions} from 'vuex'
 export default {
 	methods:{
-		...mapMutations("audio",['SETGLOBALDATA','UPDATE','RESET'])
+		...mapMutations("audio",['SETGLOBALDATA']),
+		...mapActions("audio",['update','reset'])
 	},
 	computed:{
 		...mapGetters(['songList','musicIndex'])
@@ -21,9 +22,9 @@ export default {
 		let audio = uni.createInnerAudioContext();
 		audio.onEnded(()=>{
 			if(this.songList.length-1 != this.musicIndex){
-				this.UPDATE()
+				this.update()
 			}else{ 
-				this.RESET()
+				this.reset()
 			}
 		})
 		this.SETGLOBALDATA({ key: "audio", value: audio });
