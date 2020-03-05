@@ -85,9 +85,8 @@
 			},
 			// 直接播放列表
 			playListMusic(id){
-				getMusicList({id,offset:this.page*this.limit,limit:this.limit}).then(res=>{
+				getMusicList({id,offset:0,limit:100}).then(res=>{
 					let list = []
-					console.log(res,55858)
 					list = res.playlist.tracks.map(item=>{
 							return {
 								id:item.id,
@@ -99,17 +98,15 @@
 					this.SETGLOBALDATA({key:'songList',value:list})
 					this.update(0)
 				})
-
 			},
 			// 格式图片
 			httpsurl(url){
 				return url.replace(/http:\/\//, 'https://');
 			},
 			// 获取歌单
-			getMusicListInfos(bool){
-				let list = []
+			getMusicListInfos(){
 				uni.showLoading({
-				    title: '加载歌单'
+				    title: '歌单加载中...'
 				});
 				getMusicListInfo({
 					offset:this.page*this.limit,
@@ -117,13 +114,8 @@
 					type:this.cat
 				}).then(res=>{
 					this.tempList = res.playlists
-					if(bool){
-						this.listInfo = [...this.listInfo,...this.tempList]
-					}else{
-						this.listInfo = res.playlists
-					}
+					this.listInfo = this.listInfo.concat(res.playlists)
 					uni.hideLoading()
-
 				}).catch(()=>{
 					uni.hideLoading()
 				})
@@ -142,7 +134,7 @@
 				return
 			}
 			this.page++
-			this.getMusicListInfos(true)
+			this.getMusicListInfos()
 		}
 	}
 </script>

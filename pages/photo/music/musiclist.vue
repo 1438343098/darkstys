@@ -50,8 +50,8 @@
 	export default{
 		data(){
 			return{
-				offset:0,
-				limit:20,
+				page:0,
+				limit:1,
 				listInfo:{
 					name:'',
 				creator:{avatarUrl:'',nickname:''},
@@ -59,6 +59,7 @@
 				description:'',
 				tracks:[]
 				},
+				id:'',
 				coverImgUrl:"",
 				showInfo:false
 			}
@@ -71,17 +72,20 @@
 			uni.showLoading({
 			    title: '加载中'
 			});
-			this.getData(id.id)	
+			this.id = id.id
+			getMusicList({id:this.id,offset:0,limit:0}).then(res=>{
+				this.limit = res.playlist.trackIds.length
+				this.getData()	
+			})
 		},
 		methods:{
 			...mapMutations("audio",["SETGLOBALDATA"]),
 			...mapActions('audio',['play','pause','update']),
-			getData(id){
-				getMusicList({id,offset:this.page*this.limit,limit:this.limit}).then(res=>{
+			getData(){
+				getMusicList({id:this.id,offset:this.page,limit:this.limit}).then(res=>{
 					this.listInfo = res.playlist
 					this.coverImgUrl = this.listInfo.coverImgUrl.replace(/http:\/\//, 'https://')
 					uni.hideLoading()
-					
 				}).catch(()=>{
 					uni.hideLoading()
 				})
@@ -105,7 +109,7 @@
 				this.update(index)
 			},
 			
-		}
+		},
 	}
 </script>
 
