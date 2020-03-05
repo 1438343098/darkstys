@@ -85,7 +85,7 @@
 			},
 			// 直接播放列表
 			playListMusic(id){
-				getMusicList({id,offset:0,limit:100}).then(res=>{
+				getMusicList({id,offset:0,limit:20}).then(res=>{
 					let list = []
 					list = res.playlist.tracks.map(item=>{
 							return {
