@@ -3,7 +3,7 @@
 	
 		<view class="lrc-box">
 			<view class="msg">播放时间：{{lrcTime}}</view>
-			<view class="text-box" :style="{'transform': 'translateY(-'+100+'upx)'}">
+			<view class="text-box" :style="{'transform': 'translateY(-'+sec*200+'upx)'}">
 			<view class="lrc-item" v-for="index in 2" :key="index+'ss'" />
 			<view v-if="!Array.isArray(lrclist[0])" class="lrc-item" v-for="(item,index) in lrclist" :key="index">
 					<text>
