@@ -32,11 +32,13 @@
 					id
 				}).then(res => {
 					if (res.lrc.lyric && res.tlyric.lyric){
+						// lrclist = utils.musicFormate(res.tlyric.lyric)
 						lrclist = [
-							utils.musicFormate(res.lrc.lyric),
-							utils.musicFormate(res.tlyric.lyric)
-							]
-						
+							...utils.musicFormate(res.lrc.lyric),
+							...utils.musicFormate(res.tlyric.lyric)
+							].sort((a,b)=>{
+								return a.lrc_sec - b.lrc_sec
+							})
 					}else{
 						if(res.lrc.lyric){
 							lrclist = utils.musicFormate(res.lrc.lyric)
