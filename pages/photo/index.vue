@@ -45,11 +45,11 @@
 	}
 }
 .music{
-	background: #dc1e1e;
+	background:#ffd2ed;
 	.photoimg{
 		transform: translateX(-10upx);
 		animation: 5s lrauto infinite 1s alternate linear;
-		box-shadow: 0upx 0upx 40upx 25upx #e66767;
+		box-shadow: 0upx 0upx 40upx 25upx #ffeaeb;
 	}
 }
 @keyframes lrauto{

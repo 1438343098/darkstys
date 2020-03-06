@@ -77,4 +77,8 @@
         "template" : "index.html",
         "domain" : "superliu.cn"
     }
+	// 关闭uni统计
+	// "uniStatistics": {
+	// "enable": false//全局关闭
+	// }
 }

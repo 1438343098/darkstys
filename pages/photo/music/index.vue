@@ -85,7 +85,7 @@
 			},
 			// 直接播放列表
 			playListMusic(id){
-				getMusicList({id,offset:0,limit:20}).then(res=>{
+				getMusicList({id,offset:0,limit:10}).then(res=>{
 					let list = []
 					list = res.playlist.tracks.map(item=>{
 							return {
@@ -123,6 +123,7 @@
 			// 搜索类型
 			search(type){
 				this.cat = type
+				this.listInfo = []
 				this.getMusicListInfos()
 				this.$refs.popup.close()
 				this.$refs.top.tops()

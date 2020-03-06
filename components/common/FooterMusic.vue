@@ -19,33 +19,36 @@
 		
 			
 		</view>
-		<uni-popup ref="popuplyric" type="bottom">
-			这是歌词
+		<myPopup ref="popuplyric" type="bottom">
+			<Lyric />
 			<view class="close" @click="$refs.popuplyric.close()">
 				<Icon class="jiantou" type="&#xe632;" size="20" color="#ff007f" />
 			</view>
-		</uni-popup>
-		<uni-popup ref="popupcomments" type="bottom">
-			这是评论
+		</myPopup>
+		<myPopup ref="popupcomments" type="bottom">
+			<Comments />
 			<view class="close" @click="$refs.popupcomments.close()">
 				<Icon class="jiantou" type="&#xe632;" size="20" color="#ff007f" />
 			</view>
-		</uni-popup>
+		</myPopup>
 	</view>
 </template>
 
 <script>
-	import uniPopup from "./uni-popup.vue"
+	import myPopup from "./uni-popup.vue"
+	import Lyric from './musicComponents/Lyric.vue'
+	import Comments from './musicComponents/Comments.vue'
 	import { mapGetters,mapActions,mapMutations } from 'vuex'
-	import {getMusicComments,getMusicLyric} from "@/api/photo.js"
+	
 	export default{
-		 components: {uniPopup},
+		 components: {myPopup,Comments,Lyric},
 		methods:{
 			...mapActions("audio",['play','pause','prev','update']),
 			plays(){
-				console.log(this.musicPaused,8888)
 				if(this.musicPaused){
-					this.play()
+					if(this.audio.src){
+						this.play()
+					}
 				}else{
 					this.pause()
 				}
@@ -53,7 +56,6 @@
 			// 底部
 			pop(type){
 				if(type == 'lyric'){
-					console.log(555)
 					this.$refs.popupcomments.close()
 					this.$refs.popuplyric.open()
 				}else{
@@ -62,15 +64,14 @@
 				}
 			}
 		},
-
 		computed:{
-			...mapGetters(["musicPaused"]),
+			...mapGetters(["musicPaused",'audio']),
 		}
 		
 	}
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 	.control{
 		display: flex;
 		justify-content: space-around;

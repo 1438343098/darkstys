@@ -100,7 +100,7 @@
 				list = this.listInfo.tracks.map(item=>{
 						return {
 							id:item.id,
-							br:item.m.br,
+							br:item.m?item.m.br:item.l.br,
 							name:item.name,
 							auth:item.ar.map(item=>item.name)
 						}

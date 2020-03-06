@@ -4,7 +4,11 @@ const state = {
 	index:0,
 	paused:true,
 	timeout:null,
-	songList: [] //播放列表
+	musicID:"",//音乐id
+	lrclist:[],//歌词
+	comments:{},//评论
+	songList: [], //播放列表
+	lrcTime:0, // 歌曲时间
 }
 
 const mutations = {
@@ -37,6 +41,11 @@ const mutations = {
 	// 播放方式
 	AUDIOSTATUS(state,payload){
 		state.audio[payload]()
+		if(payload == 'pause'){
+			state.paused = true
+		}else{
+			state.paused = false
+		}
 	},
 	// 请求音乐地址
 	PLAYMUSIC(state){
@@ -49,6 +58,7 @@ const mutations = {
 				state.timeout = null
 			}else{
 				state.timeout = setTimeout(()=>{
+					state.musicID = state.songList[state.index].id
 					getPlayUrl({br:state.songList[state.index].br,id:state.songList[state.index].id}).then(res=>{
 						state.audio.src = res.data[0].url
 						state.audio.play()

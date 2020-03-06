@@ -56,14 +56,15 @@
 				maskClass: {
 					'position': 'fixed',
 					'bottom': "10%",
-					'top': 0,
+					'top': "88upx",
 					'left': 0,
 					'right': 0,
-					'backgroundColor': 'rgba(0, 0, 0, 0.4)'
+					'backgroundColor': 'rgba(0, 0, 0, 0.7)'
 				},
 				transClass: {
 					'position': 'fixed',
 					'left': 0,
+					'top': "88upx",
 					'right': 0,
 				}
 			}
@@ -85,6 +86,7 @@
 							this.transClass = {
 								'position': 'fixed',
 								'left': 0,
+								'top':"88upx",
 								'right': 0,
 								'bottom': "10%"
 							}
@@ -100,7 +102,7 @@
 								'bottom': "10%",
 								'left': 0,
 								'right': 0,
-								'top': 0,
+								'top': "88upx",
 								'justifyContent': 'center',
 								'alignItems': 'center'
 							}
@@ -157,12 +159,7 @@
 <style lang="scss" scoped>
 	.uni-popup {
 		position: fixed;
-		/* #ifdef H5 */
-		top: var(--window-top);
-		/* #endif */
-		/* #ifndef H5 */
-		top: 0;
-		/* #endif */
+		top: 88upx;
 		bottom: 10%;
 		left: 0;
 		right: 0;
@@ -239,6 +236,8 @@
 		display: block;
 		/* #endif */
 		position: relative;
+		    width: 100%;
+		    height: 100%;
 	}
 
 	.content-ani {
