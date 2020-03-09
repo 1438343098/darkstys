@@ -19,7 +19,7 @@ const mutations = {
     },
 	// 上一曲
 	PREV(state){
-		state.index -= 1
+		--state.index
 		if(state.index < 0){
 			state.index = state.songList.length-1
 		}
@@ -31,6 +31,9 @@ const mutations = {
 				state.index = indexs
 			}else{
 				state.index += 1
+				if(state.index > state.songList.length-1){
+					state.index = 0
+				}
 			}
 		}
 	},

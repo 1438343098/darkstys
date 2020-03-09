@@ -1,5 +1,5 @@
 <template>
-	<view v-if="showPopup" class="uni-popup" @touchmove.stop.prevent="clear">
+	<view v-show="showPopup" class="uni-popup" @touchmove.stop.prevent="clear">
 		<uni-transition :mode-class="['fade']" :styles="maskClass" :duration="duration" :show="showTrans" @click="onTap" />
 		<uni-transition :mode-class="ani" :styles="transClass" :duration="duration" :show="showTrans" @click="onTap">
 			<view class="uni-popup__wrapper-box" @click.stop="clear">
@@ -56,7 +56,7 @@
 				maskClass: {
 					'position': 'fixed',
 					'bottom': "10%",
-					'top': "88upx",
+					'top': 0,
 					'left': 0,
 					'right': 0,
 					'backgroundColor': 'rgba(0, 0, 0, 0.8)'
@@ -64,7 +64,6 @@
 				transClass: {
 					'position': 'fixed',
 					'left': 0,
-					'top': "88upx",
 					'right': 0,
 				}
 			}
@@ -86,7 +85,6 @@
 							this.transClass = {
 								'position': 'fixed',
 								'left': 0,
-								'top':"88upx",
 								'right': 0,
 								'bottom': "10%"
 							}
@@ -102,7 +100,7 @@
 								'bottom': "10%",
 								'left': 0,
 								'right': 0,
-								'top': "88upx",
+								'top': 0,
 								'justifyContent': 'center',
 								'alignItems': 'center'
 							}
@@ -159,7 +157,12 @@
 <style lang="scss" scoped>
 	.uni-popup {
 		position: fixed;
-		top: 88upx;
+		/* #ifdef H5 */
+		top: var(--window-top);
+		/* #endif */
+		/* #ifndef H5 */
+		top: 0;
+		/* #endif */
 		bottom: 10%;
 		left: 0;
 		right: 0;
@@ -236,8 +239,8 @@
 		display: block;
 		/* #endif */
 		position: relative;
-		    width: 100%;
-		    height: 100%;
+		width: 100%;
+		height: 100%;
 	}
 
 	.content-ani {

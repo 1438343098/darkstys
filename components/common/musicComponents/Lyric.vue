@@ -39,18 +39,15 @@ export default {
 <style scoped lang="scss">
 .lyric {
 	color: #eeeeee;
-	width: 100%;
-	height: 100%;
-	position: relative;
 	.lrc-box {
 		width: 100%;
 		height: 500upx;
 		text-align: center;
 		overflow-y: hidden;
-		position: absolute;
+		position: fixed;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -20%);
+		transform: translate(-50%, -120%);
 	}
 	.text-box {
 		transition: all 0.5s;
