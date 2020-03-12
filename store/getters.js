@@ -7,5 +7,7 @@ const getters = {
   lrclist:state => state.audio.lrclist,
   comments:state => state.audio.comments,
   lrcTime:state => state.audio.lrcTime,
+  musicInfo:state => state.audio.musicInfo,
+  musicSrc:state => state.audio.musicSrc
 }
 export default getters

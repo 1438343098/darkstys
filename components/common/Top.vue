@@ -1,3 +1,4 @@
+
 <template>
 	<view class="top" @click="tops">
 		<Icon class="jiantou" type="&#xe632;" size="15" color="#fff" />

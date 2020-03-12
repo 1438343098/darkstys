@@ -4,12 +4,12 @@
 			<image src="/static/image/start.jpg" class="imgBg" />
 			<view class="titles">
 				<text class="texts">darkSky</text>
-				<button class="button" type="primary">
+				<view class="button" >
 					<text class="upt">融</text>
 					<text class="upt">入</text>
 					<text class="upt">夜</text>
 					<text class="upt">空</text> 
-				</button> 
+				</view> 
 			</view>
 		</view>
 	</view>
@@ -24,11 +24,11 @@ export default {
 		}
 	},
 	onLoad() {
-		this.time = setTimeout(function() {
-			uni.switchTab({
-				url:'/pages/index/index'
-			})
-		}, 3000);
+		// this.time = setTimeout(function() {
+		// 	uni.switchTab({
+		// 		url:'/pages/index/index'
+		// 	})
+		// }, 3000);
 	},
 	methods: {
 		// 进入首页
@@ -72,6 +72,7 @@ export default {
 		text-align: center;
 		left: 50%;
 		border: 0;
+		color: #fff;
 		width: 240upx;
 		transform: translateX(-50%);
 	}

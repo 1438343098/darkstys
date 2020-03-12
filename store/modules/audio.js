@@ -5,10 +5,12 @@ const state = {
 	paused:true,
 	timeout:null,
 	musicID:"",//音乐id
-	lrclist:[],//歌词
-	comments:{},//评论
+	lrclist:null,//歌词
+	comments:null,//评论
 	songList: [], //播放列表
 	lrcTime:0, // 歌曲时间
+	musicInfo:null ,//歌曲信息
+	musicSrc:''//音乐url
 }
 
 const mutations = {
@@ -63,6 +65,7 @@ const mutations = {
 				state.timeout = setTimeout(()=>{
 					state.musicID = state.songList[state.index].id
 					getPlayUrl({br:state.songList[state.index].br,id:state.songList[state.index].id}).then(res=>{
+						state.musicSrc = res.data[0].url
 						state.audio.src = res.data[0].url
 						state.audio.play()
 						state.paused = false

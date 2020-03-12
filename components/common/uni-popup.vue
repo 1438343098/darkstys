@@ -209,14 +209,14 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		transform: translateY(-500px);
+		transform: translateY(-1000upx);
 	}
 
 	.bottom {
 		bottom: 10%;
 		left: 0;
 		right: 0;
-		transform: translateY(500px);
+		transform: translateY(1000upx);
 	}
 
 	.center {

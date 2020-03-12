@@ -40,7 +40,7 @@
 			</view>
 		</view>
 		<Top ref='top' />
-		<FooterMusic />
+		<footer-music />
 	</view>
 </template>
 
@@ -216,11 +216,11 @@
 		.by{
 	
 			    position: absolute;
-			    right: 20px;
+			    right: 40upx;
 			    color: #505050;
-			    font-size: 10px;
-			    width: 95px;
-			    bottom: 4px;
+			    font-size: 20upx;
+			    width: 190upx;
+			    bottom: 8upx;
 			    white-space: nowrap;
 			    overflow: hidden;
 			    text-align: right;

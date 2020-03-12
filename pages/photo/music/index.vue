@@ -37,7 +37,7 @@
 			
 		</view>
 		
-		<FooterMusic />
+		<footer-music />
 		<Top ref='top' />
 	</view>
 </template>

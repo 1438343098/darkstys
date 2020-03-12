@@ -6,7 +6,8 @@
 	} from 'vuex'
 	import {
 		getMusicComments,
-		getMusicLyric
+		getMusicLyric,
+		getMusicInfo
 	} from "@/api/photo.js"
 	import utils from '@/utils';
 	export default {
@@ -31,23 +32,29 @@
 				getMusicLyric({
 					id
 				}).then(res => {
-					if (res.lrc.lyric && res.tlyric.lyric){
-						// lrclist = utils.musicFormate(res.tlyric.lyric)
-						lrclist = [
-							...utils.musicFormate(res.lrc.lyric),
-							...utils.musicFormate(res.tlyric.lyric)
-							].sort((a,b)=>{
-								return a.lrc_sec - b.lrc_sec
-							})
-					}else{
-						if(res.lrc.lyric){
-							lrclist = utils.musicFormate(res.lrc.lyric)
-						}else if(res.tlyric.lyric){
-							lrclist = utils.musicFormate(res.tlyric.lyric)
+					if(res.nolyric || res.uncollected){
+						lrclist = ["纯音乐,请欣赏"]
+					} else{
+						if (res.lrc.lyric && res.tlyric.lyric){
+							// lrclist = utils.musicFormate(res.tlyric.lyric)
+							lrclist = [
+								...utils.musicFormate(res.lrc.lyric),
+								...utils.musicFormate(res.tlyric.lyric)
+								].sort((a,b)=>{
+									return a.lrc_sec - b.lrc_sec
+								})
 						}else{
-							lrclist = ["纯音乐,请欣赏"]
+							if(res.lrc.lyric){
+								lrclist = utils.musicFormate(res.lrc.lyric)
+							}else if(res.tlyric.lyric){
+								lrclist = utils.musicFormate(res.tlyric.lyric)
+							}else{
+								lrclist = ["纯音乐,请欣赏"]
+							}
+							
 						}
 					}
+				
 					this.SETGLOBALDATA({
 						key: "lrclist",
 						value: lrclist
@@ -78,7 +85,6 @@
 				value: audio
 			});
 			audio.onEnded(() => {
-				console.log(54545,this.songList)
 				if (this.songList.length - 1 != this.musicIndex) {
 					this.update()
 				} else {
@@ -95,10 +101,28 @@
 			})
 			// 新音乐事件 获取歌词。评论
 			audio.onCanplay(() => {
+				this.SETGLOBALDATA({
+					key: "lrclist",
+					value: []
+				});
+				this.SETGLOBALDATA({
+					key: "comments",
+					value: {}
+				});
+				this.SETGLOBALDATA({
+					key: "musicInfo",
+					value: {songs:[{name:'',al:{},ar:[{name:''}]}]}
+				});
 				// 歌词
 				this.getLrc(this.musicID);
 				// 评论
 				this.getComments(this.musicID);
+				getMusicInfo({id:this.musicID}).then(res=>{
+					this.SETGLOBALDATA({
+						key: "musicInfo",
+						value: res
+					});
+				})
 			})
 			
 		},
@@ -118,8 +142,26 @@
 
 	uni-image {
 		width: 100%;
+		height: 100%;
 	}
+	/* #ifdef MP-WEIXIN */
+	image{
+		width: 100% ;
+		height: 100% ;
+		display: block ;
+	
+	}
+	/* #endif */
+	/* #ifdef APP-PLUS */
+	image{
+		width: 100%;
+		height: 100% ;
+		display: block ;
+	
+	}
+	/* #endif */
 
+	
 	.ofh {
 		overflow: hidden;
 	}

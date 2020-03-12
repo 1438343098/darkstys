@@ -1,10 +1,14 @@
 <template>
 	<view class="index">
 		<navigator url='image/index' hover-class='none' class="bilibili" >
-			<image  mode='widthFix' class="photoimg" src="http://superliu.cn/photo/bilibili.jpg" ></image>
+			<view class="photoimg">
+				<image   src="https://superliu.cn/photo/bilibili.jpg" ></image>
+			</view>
 		</navigator>
 		<navigator  url='music/index' hover-class='none' class="music">
-			<image  mode='widthFix' class="photoimg" src="http://superliu.cn/photo/music.jpg" ></image>
+			<view class="photoimg">
+				<image   src="https://superliu.cn/photo/music.jpg" ></image>
+			</view>
 		</navigator>
 	</view>
 </template>
@@ -32,8 +36,7 @@
 	width: 80%;
 	height: 80%;
 	border-radius: 10px;
-	
-	
+	overflow: hidden;
 }
 
 .bilibili{

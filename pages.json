@@ -13,71 +13,62 @@
 		{
 		    "path": "pages/index/index",
 		    "style": {
-		        "navigationBarTitleText": "出发",
-		        "navigationBarBackgroundColor":"#b97d9f" 
+		        "navigationBarTitleText": "出发"
 		    }
 		},
 		// 好友
 		{
             "path": "pages/friend/index",
             "style": {
-                "navigationBarTitleText": "好友",
-				"navigationBarBackgroundColor":"#b97d9f"
+                "navigationBarTitleText": "好友"
             }
         }, 
 		// 视听
 		{
             "path": "pages/photo/index",
             "style": {
-                "navigationBarTitleText": "视听",
-				"navigationBarBackgroundColor":"#b97d9f"
+                "navigationBarTitleText": "视听"
             }
         }, 
 		// 图片
 		{
 		    "path": "pages/photo/image/index",
 			"style": {
-			    "navigationBarTitleText": "相簿",
-				"navigationBarBackgroundColor":"#b97d9f"
+			    "navigationBarTitleText": "相簿"
 			}
 		}, 
 		// 图片详情
 		{
 		    "path": "pages/photo/image/info",
 			"style": {
-			    "navigationBarTitleText": "图片详情",
-				"navigationBarBackgroundColor":"#b97d9f"
+			    "navigationBarTitleText": "图片详情"
 			}
 		},
 		// 歌单列表
 		{
 		    "path": "pages/photo/music/index",
 			"style": {
-			    "navigationBarTitleText": "精品歌单",
-				"navigationBarBackgroundColor":"#b97d9f"
+			    "navigationBarTitleText": "精品歌单"
 			}
 		}, 
 		{
 		    "path": "pages/photo/music/musiclist",
 			"style": {
-			    "navigationBarTitleText": "歌单详情",
-				"navigationBarBackgroundColor":"#b97d9f"
+			    "navigationBarTitleText": "歌单详情"
 			}
 		}, 
 		// MY
 		{
             "path": "pages/user/user",
             "style": {
-                "navigationBarTitleText": "MY",
-				"navigationBarBackgroundColor":"#b97d9f"
+                "navigationBarTitleText": "MY"
             }
         }, 
 		// 登录
 		{
             "path": "pages/user/login",
             "style": {
-                "navigationBarTitleText": "登录",
-				"navigationBarBackgroundColor":"#b97d9f"
+                "navigationBarTitleText": "登录"
 				
             }
         }, 
@@ -85,9 +76,8 @@
 		{
             "path": "pages/user/reg",
             "style": {
-                "navigationBarTitleText": "注册",
-				"navigationBarBackgroundColor":"#b97d9f"
-				
+                "navigationBarTitleText": "注册"
+			
 				
             }
         }, 
@@ -95,18 +85,14 @@
 		{
             "path": "pages/user/pwd",
             "style": {
-                "navigationBarTitleText": "找回密码",
-				"navigationBarBackgroundColor":"#b97d9f"
-	
+                "navigationBarTitleText": "找回密码"
             }
         }, 
 		// 找回密码
 		{
             "path": "pages/user/info",
             "style": {
-                "navigationBarTitleText": "个人资料",
-				"navigationBarBackgroundColor":"#b97d9f"
-	
+                "navigationBarTitleText": "个人资料"
             }
         }
     ],
