@@ -2,12 +2,12 @@
 	<view class="index">
 		<navigator url='image/index' hover-class='none' class="bilibili" >
 			<view class="photoimg">
-				<image   src="https://superliu.cn/photo/bilibili.jpg" ></image>
+				<image   src="/static/image/bilibili.jpg" mode="aspectFill"></image>
 			</view>
 		</navigator>
 		<navigator  url='music/index' hover-class='none' class="music">
 			<view class="photoimg">
-				<image   src="https://superliu.cn/photo/music.jpg" ></image>
+				<image   src="/static/image/music.jpg" mode="aspectFill"></image>
 			</view>
 		</navigator>
 	</view>
