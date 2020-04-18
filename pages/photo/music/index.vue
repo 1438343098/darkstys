@@ -37,7 +37,8 @@
 			
 		</view>
 		
-		<footer-music />
+		<!-- 暂时注释 -->
+		<!-- <footer-music /> -->
 		<Top ref='top' />
 	</view>
 </template>

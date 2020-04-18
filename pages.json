@@ -109,28 +109,42 @@
         "backgroundColor": "#477497",
         "list": [
 			{
-				"pagePath": "pages/index/index",
-				"text": "出发",
-				"iconPath": "static/image/play.png",
-				"selectedIconPath": "static/image/playend.png"
-			},{
-				"pagePath": "pages/friend/index",
-				"text": "好友",
-				"iconPath":"static/image/friend.png",
-				"selectedIconPath":"static/image/friended.png"
+				"pagePath": "pages/photo/image/index",
+				"text": "相簿",
+				"iconPath": "static/image/photo.png",
+				"selectedIconPath": "static/image/photoend.png"
 			},
 			{
-				"pagePath": "pages/photo/index",
-				"text": "视听",
-				"iconPath":"static/image/photo.png",
-				"selectedIconPath":"static/image/photoend.png"
-			},
-			{
-				"pagePath": "pages/user/user",
-				"text": "MY",
-				"iconPath": "static/image/user.png",
-				"selectedIconPath": "static/image/userend.png"
+				"pagePath": "pages/photo/music/index",
+				"text": "音乐",
+				"iconPath":"static/image/music.png",
+				"selectedIconPath":"static/image/musicend.png"
 			}
+			// <!-- 暂时注释 -->
+			// {
+			// 	"pagePath": "pages/index/index",
+			// 	"text": "出发",
+			// 	"iconPath": "static/image/play.png",
+			// 	"selectedIconPath": "static/image/playend.png"
+			// },
+			// {
+			// 	"pagePath": "pages/friend/index",
+			// 	"text": "好友",
+			// 	"iconPath":"static/image/friend.png",
+			// 	"selectedIconPath":"static/image/friended.png"
+			// },
+			// {
+			// 	"pagePath": "pages/photo/index",
+			// 	"text": "视听",
+			// 	"iconPath":"static/image/photo.png",
+			// 	"selectedIconPath":"static/image/photoend.png"
+			// },
+			// {
+			// 	"pagePath": "pages/user/user",
+			// 	"text": "MY",
+			// 	"iconPath": "static/image/user.png",
+			// 	"selectedIconPath": "static/image/userend.png"
+			// }
 		]
     }
 

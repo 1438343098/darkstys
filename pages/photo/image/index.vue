@@ -93,7 +93,7 @@ export default {
 .inputs {
 	width: 80%;
 	height: 100%;
-	text-indent: 40upx;
+	padding-left: 40upx;
 	line-height: 80upx;
 	box-sizing: border-box;
 }

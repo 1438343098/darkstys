@@ -35,8 +35,11 @@ export default {
 		goIndex() {
 		clearTimeout(this.time)
 		this.time = null
+			// uni.switchTab({
+			// 	url:'/pages/index/index'
+			// })
 			uni.switchTab({
-				url:'/pages/index/index'
+				url:'/pages/photo/image/index'
 			})
 		}
 	}
