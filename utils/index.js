@@ -1,4 +1,6 @@
-	function time(date) {
+
+	
+function time(date) {
 	var d = new Date(date)
 	var year = d.getFullYear()
 	var month = d.getMonth() + 1
@@ -88,6 +90,9 @@ function parse_lrc(lrc_content) {
 	
 	return now_lrc;
 };
+
+
+
 
 // 表情处理
 function emoji(str) {
