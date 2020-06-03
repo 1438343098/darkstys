@@ -66,7 +66,7 @@ const mutations = {
 					state.musicID = state.songList[state.index].id
 					getPlayUrl({br:state.songList[state.index].br,id:state.songList[state.index].id}).then(res=>{
 						state.musicSrc = res.data[0].url
-						state.audio.src = res.data[0].url
+						state.audio.src = res.data[0].url.replace(/http:\/\//, 'https://')
 						state.audio.play()
 						state.paused = false
 						state.timeout = null

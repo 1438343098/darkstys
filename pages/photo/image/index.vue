@@ -11,7 +11,7 @@
 			<view class="imgItem" @click="toInfo(item)" v-for="(item, index) in list" :key="index">
 				<view class="img">
 					<!-- <image mode="widthFix" @longpress="downloadImg(item.cover,item.uname)" :src="item.cover"></image> -->
-					<image mode="widthFix"  :src="item.cover"></image>
+					<image mode="widthFix"  :src="item.cover.replace(/http:\/\//, 'https://')"></image>
 					<view class="count">{{ item.count }}</view>
 				</view>
 				<view class="info ac">

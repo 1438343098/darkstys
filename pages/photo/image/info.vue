@@ -7,7 +7,7 @@
 		</view>
 		<view class="info">{{ data.item.description }}</view>
 		<view class="imglist ac" v-for="(item, index) in data.item.pictures" :key="index">
-			<image @longpress="downloadImg(item.img_src,data.item.title)" mode="widthFix" :src="item.img_src"></image>
+			<image @longpress="downloadImg(item.img_src,data.item.title)" mode="widthFix" :src="item.img_src.replace(/http:\/\//, 'https://')"></image>
 		</view>
 		<Top />
 	</view>

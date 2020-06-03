@@ -9,12 +9,10 @@
 			{{listInfo.name}}
 			</view>
 			<view class="user fr" >
-				<text class='userlog' v-bind:style="{ backgroundImage: 'url('+listInfo.creator.avatarUrl+')' }"></text>
+				<text class='userlog' v-bind:style="{ backgroundImage: 'url('+listInfo.creator.avatarUrl.replace(/http:\/\//, 'https://')+')' }"></text>
 				<text>{{listInfo.creator.nickname}}</text>
 			</view>
 		</view>
-		
-		
 		<view class="info"  :class="showInfo?'all':'mini'">
 			<text >标签：{{listInfo.tags.join(' ')}}</text>
 			<text >{{listInfo.description}}</text>
@@ -27,7 +25,7 @@
 			
 			<view class="musicItem" @click="playItem(index)" v-for="(item,index) in listInfo.tracks" :key='index'>
 				<view class="play"  >
-					<image :src="item.al.picUrl" mode="widthFix"></image>
+					<image :src="item.al.picUrl.replace(/http:\/\//, 'https://')" mode="widthFix"></image>
 				</view>
 				<view class="text" >
 					{{item.name}}
